@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | John Inocente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reuse the existing styles from home.html */
+        @import url('home.html');
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <div class="content">
+        <!-- Navigation -->
+        <nav class="fixed w-full frost-glass bg-opacity-90 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="home.html" class="text-xl font-bold gradient-text">JOHN INOCENTE</a>
+                    </div>
+                    <div class="hidden md:block">
+                        <a href="home.html" class="nav-link text-white px-3 py-2 text-sm font-medium">Back to Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Project Details Section -->
+        <section class="py-20 frost-glass particles-js">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl font-bold gradient-text">Project Title</h1>
+                    <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto mt-4"></div>
+                    <p class="text-gray-400 max-w-2xl mx-auto mt-6">
+                        A brief description of the project, highlighting its purpose, features, and technologies used.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Project Image -->
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x400" alt="Project Image" class="rounded-lg shadow-lg">
+                    </div>
+
+                    <!-- Project Details -->
+                    <div>
+                        <h2 class="text-2xl font-bold text-white mb-6">Project Overview</h2>
+                        <p class="text-gray-300 mb-6">
+                            This section provides a detailed explanation of the project, including its objectives, challenges, and solutions implemented during development.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-300 mb-6">
+                            <li>Feature 1: Description of the feature.</li>
+                            <li>Feature 2: Description of the feature.</li>
+                            <li>Feature 3: Description of the feature.</li>
+                        </ul>
+                        <div class="flex space-x-4">
+                            <a href="#" class="px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition duration-300">
+                                View Live Demo
+                            </a>
+                            <a href="#" class="px-6 py-3 bg-gray-800 text-white font-medium rounded-lg hover:bg-gray-700 transition duration-300">
+                                View Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Screenshots -->
+                <div class="mt-16">
+                    <h2 class="text-2xl font-bold text-white mb-6 text-center">Screenshots</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <img src="https://via.placeholder.com/400x300" alt="Screenshot 1" class="rounded-lg shadow-lg">
+                        <img src="https://via.placeholder.com/400x300" alt="Screenshot 2" class="rounded-lg shadow-lg">
+                        <img src="https://via.placeholder.com/400x300" alt="Screenshot 3" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="frost-glass py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+                    <p>&copy; 2023 John Inocente. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#6BB8D6"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 6
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": false,
+                            "anim": {
+                                "enable": false,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 40,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#6BB8D6",
+                            "opacity": 0.4,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": false,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 1
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 200,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+        });
+    </script>
+</body>
+</html>

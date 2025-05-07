@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Inocente | Game Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --primary: #6BB8D6; /* Frosty blue */
+            --secondary: #7FD8E3; /* Ice teal */
+            --accent: #A5C4E8; /* Light frosty purple */
+            --dark: #0F172A; /* Deep navy blue */
+            --light: #E2F1F8; /* Ice white */
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            scroll-behavior: smooth;
+        }
+        
+        .pixel-font {
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glow-on-hover:hover {
+            box-shadow: 0 0 15px var(--primary);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Frost glass effect */
+        .frost-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes snowflakes-shake {
+            0%,100% {transform:translateX(0)}
+            50% {transform:translateX(80px)}
+        }
+        .snowflake {
+            color: #fff;
+            font-size: 1em;
+            position: fixed;
+            top:-10%;
+            z-index:9999;
+            user-select:none;
+            cursor:default;
+            animation-name:snowflakes-fall,snowflakes-shake;
+            animation-duration:10s,3s;
+            animation-timing-function:linear,ease-in-out;
+            animation-iteration-count:infinite,infinite;
+            animation-play-state:running,running;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <div class="content">
+        <!-- Navigation -->
+        <nav class="fixed w-full frost-glass bg-opacity-90 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold gradient-text">JOHN INOCENTE</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#about" class="nav-link text-white px-3 py-2 text-sm font-medium">About</a>
+                            <a href="#projects" class="nav-link text-white px-3 py-2 text-sm font-medium">Projects</a>
+                            <a href="#skills" class="nav-link text-white px-3 py-2 text-sm font-medium">Skills</a>
+                            <a href="#contact" class="nav-link text-white px-3 py-2 text-sm font-medium">Contact</a>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="menu-toggle" class="text-white focus:outline-none">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden frost-glass bg-opacity-95">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#about" class="block px-3 py-2 text-base font-medium text-white">About</a>
+                    <a href="#projects" class="block px-3 py-2 text-base font-medium text-white">Projects</a>
+                    <a href="#skills" class="block px-3 py-2 text-base font-medium text-white">Skills</a>
+                    <a href="#contact" class="block px-3 py-2 text-base font-medium text-white">Contact</a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- About Section -->
+        <section id="about" class="py-20 frost-glass particles-js">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold gradient-text inline-block">About Me</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto mt-4"></div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                        <div class="relative w-64 h-64">
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-teal-400 rounded-lg opacity-20 blur-xl"></div>
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                                 alt="John working" 
+                                 class="relative w-full h-full object-cover rounded-lg border-2 border-blue-400">
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 md:pl-12">
+                        <h3 class="text-2xl font-bold text-white mb-6">Who am I?</h3>
+                        <p class="text-gray-300 mb-6">
+                            I'm John Inocente, a passionate game developer with over 8 years of experience in the industry. 
+                            My journey began when I was just 12 years old, modding my favorite games, and has evolved into 
+                            a professional career creating engaging gaming experiences.
+                        </p>
+                        <p class="text-gray-300 mb-6">
+                            I specialize in Unity and Unreal Engine development, with expertise in gameplay programming, 
+                            level design, and game mechanics. My goal is to create games that not only entertain but also 
+                            tell meaningful stories and create emotional connections with players.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mt-8">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4">
+                                    <i class="fas fa-gamepad text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium">50+ Projects</h4>
+                                    <p class="text-gray-400 text-sm">Completed</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-teal-400 flex items-center justify-center mr-4">
+                                    <i class="fas fa-users text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium">5M+ Downloads</h4>
+                                    <p class="text-gray-400 text-sm">Across all games</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4">
+                                    <i class="fas fa-trophy text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium">12 Awards</h4>
+                                    <p class="text-gray-400 text-sm">Industry recognition</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-teal-400 flex items-center justify-center mr-4">
+                                    <i class="fas fa-code text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium">8 Years</h4>
+                                    <p class="text-gray-400 text-sm">Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 particles-js">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold gradient-text inline-block">My Projects</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto mt-4"></div>
+                    <p class="text-gray-400 max-w-2xl mx-auto mt-6">
+                        Here are some of my recent game development projects. Each one represents a unique challenge 
+                        and an opportunity to push the boundaries of interactive entertainment.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542751375-ad40-3baa0a2a0c7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Project 1" 
+                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">C#</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Frostbound</h3>
+                            <p class="text-gray-400 mb-4">
+                                A survival adventure set in an endless winter with dynamic weather systems and crafting.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-steam"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-itch-io"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Project 2" 
+                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unreal</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">C++</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Glacial Drift</h3>
+                            <p class="text-gray-400 mb-4">
+                                Racing game featuring physics-based vehicle mechanics on frozen lakes and glaciers.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-steam"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-xbox"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dba3675ad2ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                                 alt="Project 3" 
+                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Mobile</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Icebreaker</h3>
+                            <p class="text-gray-400 mb-4">
+                                Puzzle game where players navigate through frozen mazes by melting strategic paths.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-apple"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-google-play"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1545566239-0a2e1d5e2b1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Project 4" 
+                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unreal</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">VR</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Aurora VR</h3>
+                            <p class="text-gray-400 mb-4">
+                                Immersive VR experience that transports players to breathtaking arctic landscapes.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-oculus"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fas fa-vr-cardboard"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1534423861381-8e93cc6eecc1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                                 alt="Project 5" 
+                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Multiplayer</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Snowfall Siege</h3>
+                            <p class="text-gray-400 mb-4">
+                                Team-based multiplayer shooter with dynamic snow physics and destructible environments.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-steam"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-playstation"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1493&q=80" 
+                                 alt="Project 6" 
+                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Godot</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Indie</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Yeti's Journey</h3>
+                            <p class="text-gray-400 mb-4">
+                                Narrative-driven platformer about a yeti searching for his lost family in the Himalayas.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-steam"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-nintendo-switch"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-16">
+                    <a href="#" class="px-8 py-3 border-2 border-blue-400 text-white font-medium rounded-full hover:bg-blue-500 hover:bg-opacity-20 transition duration-300 inline-flex items-center">
+                        View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 frost-glass particles-js">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold gradient-text inline-block">My Skills</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto mt-4"></div>
+                    <p class="text-gray-400 max-w-2xl mx-auto mt-6">
+                        Over the years, I've developed expertise in various aspects of game development. 
+                        Here's a breakdown of my technical skills and areas of specialization.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-8">Technical Skills</h3>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Unity Engine</span>
+                                <span class="text-blue-400">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Unreal Engine</span>
+                                <span class="text-blue-400">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">C# Programming</span>
+                                <span class="text-blue-400">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">C++ Programming</span>
+                                <span class="text-blue-400">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Shader Programming</span>
+                                <span class="text-blue-400">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-8">Additional Skills</h3>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Game Design</span>
+                                <span class="text-blue-400">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Level Design</span>
+                                <span class="text-blue-400">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">3D Modeling</span>
+                                <span class="text-blue-400">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">UI/UX Design</span>
+                                <span class="text-blue-400">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Project Management</span>
+                                <span class="text-blue-400">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
+                        <div class="w-16 h-16 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-code text-blue-400 text-2xl"></i>
+                        </div>
+                        <h4 class="text-white font-medium mb-2">Clean Code</h4>
+                        <p class="text-gray-400 text-sm">Modular, maintainable, and efficient code architecture</p>
+                    </div>
+                    
+                    <div class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
+                        <div class="w-16 h-16 bg-teal-400 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-lightbulb text-teal-300 text-2xl"></i>
+                        </div>
+                        <h4 class="text-white font-medium mb-2">Innovation</h4>
+                        <p class="text-gray-400 text-sm">Creative solutions to complex gameplay challenges</p>
+                    </div>
+                    
+                    <div class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
+                        <div class="w-16 h-16 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-blue-400 text-2xl"></i>
+                        </div>
+                        <h4 class="text-white font-medium mb-2">Team Leadership</h4>
+                        <p class="text-gray-400 text-sm">Experience managing cross-functional game dev teams</p>
+                    </div>
+                    
+                    <div class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
+                        <div class="w-16 h-16 bg-teal-400 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-teal-300 text-2xl"></i>
+                        </div>
+                        <h4 class="text-white font-medium mb-2">Optimization</h4>
+                        <p class="text-gray-400 text-sm">Performance tuning for various platforms and devices</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+         <section id="contact" class="py-20 particles-js">      
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold gradient-text inline-block">Get In Touch</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto mt-4"></div>
+                    <p class="text-gray-400 max-w-2xl mx-auto mt-6">
+                        Interested in working together or have a question about my work? 
+                        Feel free to reach out through any of the channels below.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row flex items-center justify-center relative overflow-hidden">
+                    <div>
+                        <!-- <h3 class="text-xl font-bold text-white mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium">Email</h4>
+                                    <a href="mailto:john@inocentegames.com" class="text-blue-400 hover:text-blue-300">john@inocentegames.com</a>
+                                </div>
+                            </div>                      
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-teal-400 flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium">Phone</h4>
+                                    <a href="tel:+1234567890" class="text-blue-400 hover:text-blue-300">+1 (234) 567-890</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium">Location</h4>
+                                    <p class="text-gray-400">Anchorage, AK</p>
+                                </div>
+                            </div> 
+                        </div> -->
+                        <div class="flex space-x-4 items-center justify-center relative overflow-hidden">
+                            <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition duration-300">
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-blue-400 flex items-center justify-center transition duration-300">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-teal-400 flex items-center justify-center transition duration-300">
+                                <i class="fab fa-instagram text-white"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300">
+                                <i class="fab fa-github text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="md:w-1/2">
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-white font-medium mb-2">Your Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-500 transition duration-300">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-white font-medium mb-2">Your Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-500 transition duration-300">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-white font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-500 transition duration-300">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-white font-medium mb-2">Your Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-500 transition duration-300"></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-teal-400 text-white font-medium rounded-lg hover:from-blue-600 hover:to-teal-500 transition duration-300">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="frost-glass py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+                    <p>&copy; 2023 John Inocente. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Initialize particles.js with frost theme
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#6BB8D6"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 6
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": false,
+                            "anim": {
+                                "enable": false,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 40,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#6BB8D6",
+                            "opacity": 0.4,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": false,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 1
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 200,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+            
+            // Animation for skill bars
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            const animateSkillBars = () => {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                        bar.style.transition = 'width 1.5s ease-in-out';
+                    }, 100);
+                });
+            };
+            
+            // Intersection Observer for skill bars animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {threshold: 0.5});
+            
+            document.querySelectorAll('#skills').forEach(section => {
+                observer.observe(section);
+            });
+
+        });
+    </script>
+</body>
+</html>
