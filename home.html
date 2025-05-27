@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
@@ -8,54 +9,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;500;700&display=swap');
-        
+
         :root {
-            --primary: #6BB8D6; /* Frosty blue */
-            --secondary: #7FD8E3; /* Ice teal */
-            --accent: #A5C4E8; /* Light frosty purple */
-            --dark: #0F172A; /* Deep navy blue */
-            --light: #E2F1F8; /* Ice white */
+            --primary: #6BB8D6;
+            /* Frosty blue */
+            --secondary: #7FD8E3;
+            /* Ice teal */
+            --accent: #A5C4E8;
+            /* Light frosty purple */
+            --dark: #0F172A;
+            /* Deep navy blue */
+            --light: #E2F1F8;
+            /* Ice white */
         }
-        
+
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--dark);
             color: var(--light);
             scroll-behavior: smooth;
         }
-        
+
         .pixel-font {
             font-family: 'Press Start 2P', cursive;
         }
-        
+
         .gradient-text {
             background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        
+
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
         }
-        
+
         .glow-on-hover:hover {
             box-shadow: 0 0 15px var(--primary);
         }
-        
+
         .skill-bar {
             height: 8px;
             border-radius: 4px;
             background: rgba(255, 255, 255, 0.1);
         }
-        
+
         .skill-progress {
             height: 100%;
             border-radius: 4px;
             background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
         }
-        
+
         #particles-js {
             position: fixed;
             width: 100%;
@@ -64,16 +70,16 @@
             left: 0;
             z-index: 0;
         }
-        
+
         .content {
             position: relative;
             z-index: 1;
         }
-        
+
         .nav-link {
             position: relative;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -84,24 +90,27 @@
             background: var(--primary);
             transition: width 0.3s ease;
         }
-        
+
         .nav-link:hover::after {
             width: 100%;
         }
-        
+
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-10px);
             }
         }
-        
+
         .floating {
             animation: float 3s ease-in-out infinite;
         }
-        
+
         /* Frost glass effect */
         .frost-glass {
             background: rgba(255, 255, 255, 0.05);
@@ -111,29 +120,38 @@
         }
 
         @keyframes snowflakes-shake {
-            0%,100% {transform:translateX(0)}
-            50% {transform:translateX(80px)}
+
+            0%,
+            100% {
+                transform: translateX(0)
+            }
+
+            50% {
+                transform: translateX(80px)
+            }
         }
+
         .snowflake {
             color: #fff;
             font-size: 1em;
             position: fixed;
-            top:-10%;
-            z-index:9999;
-            user-select:none;
-            cursor:default;
-            animation-name:snowflakes-fall,snowflakes-shake;
-            animation-duration:10s,3s;
-            animation-timing-function:linear,ease-in-out;
-            animation-iteration-count:infinite,infinite;
-            animation-play-state:running,running;
+            top: -10%;
+            z-index: 9999;
+            user-select: none;
+            cursor: default;
+            animation-name: snowflakes-fall, snowflakes-shake;
+            animation-duration: 10s, 3s;
+            animation-timing-function: linear, ease-in-out;
+            animation-iteration-count: infinite, infinite;
+            animation-play-state: running, running;
         }
     </style>
 </head>
+
 <body class="min-h-screen">
     <!-- Particles Background -->
     <div id="particles-js"></div>
-    
+
     <div class="content">
         <!-- Navigation -->
         <nav class="fixed w-full frost-glass bg-opacity-90 z-50">
@@ -157,7 +175,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Mobile menu -->
             <div id="mobile-menu" class="hidden md:hidden frost-glass bg-opacity-95">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -168,7 +186,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <!-- About Section -->
         <section id="about" class="py-20 frost-glass particles-js">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -176,39 +194,49 @@
                     <h2 class="text-3xl font-bold gradient-text inline-block">About Me</h2>
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto mt-4"></div>
                 </div>
-                
+
                 <div class="flex flex-col md:flex-row items-center">
                     <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
                         <div class="relative w-64 h-64">
-                            <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-teal-400 rounded-lg opacity-20 blur-xl"></div>
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
-                                 alt="John working" 
-                                 class="relative w-full h-full object-cover rounded-lg border-2 border-blue-400">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-blue-400 to-teal-400 rounded-lg opacity-20 blur-xl">
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                                alt="John working"
+                                class="relative w-full h-full object-cover rounded-lg border-2 border-blue-400">
                         </div>
                     </div>
                     <div class="md:w-2/3 md:pl-12">
                         <h3 class="text-2xl font-bold text-white mb-6">Who am I?</h3>
                         <p class="text-gray-300 mb-6">
-                            I'm John Inocente, a passionate game developer with over 8 years of experience in the industry. 
-                            My journey began when I was just 12 years old, modding my favorite games, and has evolved into 
-                            a professional career creating engaging gaming experiences.
+                            I'm John Inocente, a passionate game developer with a demonstrated history of working in the game and IT service industry. 
+                            Has deployed mobile games in Apple Store and Play Store. Proficiency in Game and Mobile Development. Knowledgable in iOS (Swift and Obj-C/C++), Android (Java, Kotlin) and C#. 
+                            Strong software development discipline, detail-oriented and team player. Obtained my Advance Diploma in Game Programming at Centennial College, Canada and Bachelor of Science (BS) in Computer Engineering at University of San Carlos, Philippines.
                         </p>
                         <p class="text-gray-300 mb-6">
-                            I specialize in Unity and Unreal Engine development, with expertise in gameplay programming, 
-                            level design, and game mechanics. My goal is to create games that not only entertain but also 
-                            tell meaningful stories and create emotional connections with players.
+                            Aside from my professional and academic career, I'm a passionate gamer with a strong interest in emerging technologies and game design concepts especially with gameplay and enemy AI mechanics.
+                            I enjoy playing basketball and badminton, and I'm a fan of video games, especially RPGs, shooters, and retro titles. I also enjoy watching anime and movies during my free time. A nature lover that enjoys camping and exploring the outdoors.
                         </p>
                         <div class="grid grid-cols-2 gap-4 mt-8">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-teal-400 flex items-center justify-center mr-4">
+                                    <i class="fas fa-code text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium">8+ Years</h4>
+                                    <p class="text-gray-400 text-sm">Coding and SDLC Experience</p>
+                                </div>
+                            </div>
                             <div class="flex items-center">
                                 <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-4">
                                     <i class="fas fa-gamepad text-white"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-medium">50+ Projects</h4>
-                                    <p class="text-gray-400 text-sm">Completed</p>
+                                    <h4 class="text-white font-medium">7+ Projects</h4>
+                                    <p class="text-gray-400 text-sm">Completed and Deployed in production</p>
                                 </div>
                             </div>
-                            <div class="flex items-center">
+                            <!-- <div class="flex items-center">
                                 <div class="w-10 h-10 rounded-full bg-teal-400 flex items-center justify-center mr-4">
                                     <i class="fas fa-users text-white"></i>
                                 </div>
@@ -225,22 +253,14 @@
                                     <h4 class="text-white font-medium">12 Awards</h4>
                                     <p class="text-gray-400 text-sm">Industry recognition</p>
                                 </div>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full bg-teal-400 flex items-center justify-center mr-4">
-                                    <i class="fas fa-code text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium">8 Years</h4>
-                                    <p class="text-gray-400 text-sm">Experience</p>
-                                </div>
-                            </div>
+                            </div> -->
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Projects Section -->
         <section id="projects" class="py-20 particles-js">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -248,17 +268,17 @@
                     <h2 class="text-3xl font-bold gradient-text inline-block">PROJECTS</h2>
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto mt-4"></div>
                     <p class="text-gray-400 max-w-2xl mx-auto mt-6">
-                        Projects that have been developed, released, and are currently in development. <!--TODO-->
+                        Samples of projects that I am currently development or have worked on recently. Some of it are released.  <!--TODO-->
                     </p>
                 </div>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project Grateful Grid -->
-                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                    <div
+                        class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
                         <div class="relative h-48 overflow-hidden">
-                            <img src="assets/images/project-GD03.png" 
-                                 alt="Project GD03" 
-                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <img src="assets/images/project-GD03.png" alt="Project GD03"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                             <div class="absolute bottom-0 left-0 p-4">
                                 <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity</span>
@@ -281,7 +301,8 @@
                                     <!-- <a href="#" class="text-gray-400 hover:text-white">
                                         <i class="fab fa-steam"></i>
                                     </a> -->
-                                    <a href="https://lighthouse-studios.itch.io/gd-03" class="text-gray-400 hover:text-white">
+                                    <a href="https://lighthouse-studios.itch.io/gd-03"
+                                        class="text-gray-400 hover:text-white">
                                         <i class="fab fa-itch-io"></i>
                                     </a>
                                 </div>
@@ -290,11 +311,11 @@
                     </div>
 
                     <!-- Project Nocturnal Beacon -->
-                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                    <div
+                        class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
                         <div class="relative h-48 overflow-hidden">
-                            <img src="assets/images/project-NB01.png" 
-                                    alt="Project NB01" 
-                                    class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <img src="assets/images/project-NB01.png" alt="Project NB01"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                             <div class="absolute bottom-0 left-0 p-4">
                                 <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity C#</span>
@@ -305,7 +326,8 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-white mb-2">Nocturnal Beacon</h3>
                             <p class="text-gray-400 mb-4">
-                                A survival turn-based card battle game set in an island of the infamous lighthouse that is shrouded by a mysterious beast lurking at the top of the beacon.
+                                A survival turn-based card battle game set in an island of the infamous lighthouse that
+                                is shrouded by a mysterious beast lurking at the top of the beacon.
                             </p>
                             <div class="flex justify-between items-center">
                                 <!-- <a href="project-details.html" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
@@ -315,7 +337,8 @@
                                     <!-- <a href="#" class="text-gray-400 hover:text-white">
                                         <i class="fab fa-steam"></i>
                                     </a> -->
-                                    <a href="https://lighthouse-studios.itch.io/nocturnal-beacon" class="text-gray-400 hover:text-white">
+                                    <a href="https://lighthouse-studios.itch.io/nocturnal-beacon"
+                                        class="text-gray-400 hover:text-white">
                                         <i class="fab fa-itch-io"></i>
                                     </a>
                                 </div>
@@ -324,11 +347,11 @@
                     </div>
 
                     <!-- Project Forgotten Heroes -->
-                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                    <div
+                        class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
                         <div class="relative h-48 overflow-hidden">
-                            <img src="assets/images/project-FH01.png" 
-                                 alt="Project 2" 
-                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <img src="assets/images/project-FH01.png" alt="Project 2"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                             <div class="absolute bottom-0 left-0 p-4">
                                 <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unreal Engine</span>
@@ -340,27 +363,29 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-white mb-2">Forgotten Heroes</h3>
                             <p class="text-gray-400 mb-4">
-                                A school project made to explore the multiplayer capabilities of Unreal Engine 5. A horde game to defeat waves of zombies and survive!
+                                A school project made to explore the multiplayer capabilities of Unreal Engine 5. A
+                                horde game to defeat waves of zombies and survive!
                             </p>
                             <div class="flex justify-between items-center">
                                 <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
                                     View Details <i class="fas fa-arrow-right ml-1"></i>
                                 </a> -->
                                 <div class="flex space-x-2">
-                                    <a href="https://github.com/jon-inoc/COMP280-UnrealArcherMP" class="text-gray-400 hover:text-white">
+                                    <a href="https://github.com/jon-inoc/COMP280-UnrealArcherMP"
+                                        class="text-gray-400 hover:text-white">
                                         <i class="fab fa-github"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Project 3 -->
-                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+
+                    <!-- Project Tank Wars -->
+                    <div
+                        class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
                         <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1511512578047-dba3675ad2ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
-                                 alt="Project 3" 
-                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <img src="assets/images/project-TW01.png" alt="Project 3"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                             <div class="absolute bottom-0 left-0 p-4">
                                 <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity</span>
@@ -370,198 +395,457 @@
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-white mb-2">Tank Wars</h3>
                             <p class="text-gray-400 mb-4">
-                                Puzzle game where players navigate through frozen mazes by melting strategic paths.
+                                Retro arcade-style tank battle game with destructible environments.
                             </p>
                             <div class="flex justify-between items-center">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
                                     View Details <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
+                                </a> -->
                                 <div class="flex space-x-2">
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fab fa-apple"></i>
-                                    </a>
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fab fa-google-play"></i>
+                                    <a href="https://joninoc.itch.io/tank-wars" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-itch-io"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Project 4 -->
-                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+
+                    <!-- Project Zombie Buster -->
+                    <div
+                        class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
                         <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1545566239-0a2e1d5e2b1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                                 alt="Project 4" 
-                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <img src="assets/images/project-ZB01.png" alt="Project 4"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                             <div class="absolute bottom-0 left-0 p-4">
-                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unreal</span>
-                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">VR</span>
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">2D</span>
                             </div>
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-white mb-2">Zombie Buster</h3>
                             <p class="text-gray-400 mb-4">
-                                Immersive VR experience that transports players to breathtaking arctic landscapes.
+                                Fast-paced 2D shooter where player fights against hordes of zombies in a
+                                post-apocalyptic world.
                             </p>
                             <div class="flex justify-between items-center">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
                                     View Details <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
+                                </a> -->
                                 <div class="flex space-x-2">
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fab fa-oculus"></i>
-                                    </a>
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fas fa-vr-cardboard"></i>
+                                    <a href="https://joninoc.itch.io/zombie-buster"
+                                        class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-itch-io"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Project 5 -->
-                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                    <div
+                        class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
                         <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1534423861381-8e93cc6eecc1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                                 alt="Project 5" 
-                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <img src="assets/images/project-AHP-01.png" alt="Project 5"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                             <div class="absolute bottom-0 left-0 p-4">
-                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity</span>
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unreal Engine 5</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Hybrid</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">ASHybridGame</h3>
+                            <p class="text-gray-400 mb-4">
+                                Hybrid 2D/3D game.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a> -->
+                                <div class="flex space-x-2">
+                                    <a href="https://github.com/jon-inoc/COMP280-UnrealArcherMP"
+                                        class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div
+                        class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="assets/images/project-DA01.png" alt="Project 6"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unreal Engine 5</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Blueprints</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Dungeon Adventure Game</h3>
+                            <p class="text-gray-400 mb-4">
+                                2D TopDown arcade game using Unreal Engine 5 and blueprints.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a> -->
+                                <div class="flex space-x-2">
+                                    <a href="https://github.com/jon-inoc/SSO_MonsterWorldUE"
+                                        class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div
+                        class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="assets/images/project-MS01.png" alt="Project 6"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unreal Engine 5</span>
                                 <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Multiplayer</span>
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Snowfall Siege</h3>
+                            <h3 class="text-xl font-bold text-white mb-2">Multiplayer Menu System</h3>
                             <p class="text-gray-400 mb-4">
-                                Team-based multiplayer shooter with dynamic snow physics and destructible environments.
+                                Reusable Multiplayer Menu Plugin in Unreal Engine.
                             </p>
                             <div class="flex justify-between items-center">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
                                     View Details <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
+                                </a> -->
                                 <div class="flex space-x-2">
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fab fa-steam"></i>
-                                    </a>
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fab fa-playstation"></i>
+                                    <a href="https://github.com/jon-inoc/COMP280-UnrealArcherMP"
+                                        class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-github"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Project 6 -->
-                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                    <div
+                        class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
                         <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1493&q=80" 
-                                 alt="Project 6" 
-                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <img src="assets/images/project-P01.png" alt="Project 6"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                             <div class="absolute bottom-0 left-0 p-4">
-                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Godot</span>
-                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Indie</span>
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unreal Engine</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Exploration</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Development</span>
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Yeti's Journey</h3>
+                            <h3 class="text-xl font-bold text-white mb-2">Personal Dev Project</h3>
                             <p class="text-gray-400 mb-4">
-                                Narrative-driven platformer about a yeti searching for his lost family in the Himalayas.
+                                Personal exploration project in Unreal Engine, focusing on environment design, ai and
+                                gameplay mechanics.
                             </p>
                             <div class="flex justify-between items-center">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
                                     View Details <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
+                                </a> -->
                                 <div class="flex space-x-2">
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fab fa-steam"></i>
-                                    </a>
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fab fa-nintendo-switch"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                                        <!-- Project 6 -->
-                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1493&q=80" 
-                                 alt="Project 6" 
-                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-                            <div class="absolute bottom-0 left-0 p-4">
-                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Godot</span>
-                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Indie</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Yeti's Journey</h3>
-                            <p class="text-gray-400 mb-4">
-                                Narrative-driven platformer about a yeti searching for his lost family in the Himalayas.
-                            </p>
-                            <div class="flex justify-between items-center">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
-                                    View Details <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
-                                <div class="flex space-x-2">
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fab fa-steam"></i>
-                                    </a>
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fab fa-nintendo-switch"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                                        <!-- Project 6 -->
-                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
-                        <div class="relative h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1493&q=80" 
-                                 alt="Project 6" 
-                                 class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-                            <div class="absolute bottom-0 left-0 p-4">
-                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Godot</span>
-                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Indie</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Yeti's Journey</h3>
-                            <p class="text-gray-400 mb-4">
-                                Narrative-driven platformer about a yeti searching for his lost family in the Himalayas.
-                            </p>
-                            <div class="flex justify-between items-center">
-                                <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
-                                    View Details <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
-                                <div class="flex space-x-2">
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fab fa-steam"></i>
-                                    </a>
-                                    <a href="#" class="text-gray-400 hover:text-white">
-                                        <i class="fab fa-nintendo-switch"></i>
-                                    </a>
+                                    <!-- <a href="https://github.com/jon-inoc/COMP280-UnrealArcherMP" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-github"></i>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-<!--                 
+                <!--                 
                 <div class="text-center mt-16">
                     <a href="#" class="px-8 py-3 border-2 border-blue-400 text-white font-medium rounded-full hover:bg-blue-500 hover:bg-opacity-20 transition duration-300 inline-flex items-center">
                         View All Projects <i class="fas fa-arrow-right ml-2"></i>
                     </a>
-                </div> -->
+                </div> -->                
+            </div>
+            <br>
+            <br>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold gradient-text inline-block">CLIENT PROJECTS</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto mt-4"></div>
+                    <p class="text-gray-400 max-w-2xl mx-auto mt-6">
+                        Samples of projects that I have worked on from my previous companies
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Opticale -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://i.ytimg.com/vi/YaLFhzuyrMA/maxresdefault.jpg" alt="Project GD03"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">C#</span>
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">UGS</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Unity AR Framework</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Opticale</h3>
+                            <p class="text-gray-400 mb-4">
+                                A monster collecting mobile game where you get creatures and its data packs by extracting them in AR space. It launched in both iOS and android platforms.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <!-- <a href="project-details.html" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a> -->
+                                <div class="flex space-x-2">
+                                    <!-- <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-steam"></i>
+                                    </a> -->
+                                    <a href="https://opticalethegame.com/en.html"
+                                        class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-trophy"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Chubbies -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/1c/d5/d1/1cd5d102-540a-be25-a1c0-713b2a1eebe9/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/217x0w.webp" alt="Project NB01"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity C#</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Game Designer</span>
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Released</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Chubbies</h3>
+                            <p class="text-gray-400 mb-4">
+                                Pet Simulation game where the player takes care of their pet Chubbies, feeding them, playing with them, and keeping them happy.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <!-- <a href="project-details.html" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a> -->
+                                <div class="flex space-x-2">
+                                    <!-- <a href="#" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-steam"></i>
+                                    </a> -->
+                                    <a href="https://apps.apple.com/us/app/chubbies/id1554218138"
+                                        class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-gamepad"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Painting Fall -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://play-lh.googleusercontent.com/TlhlhlQ9W8kGoMMDDs6WSKTiXyGKYQDtMtHUGoIRpWuJehezFR1wjGDmODEmXgKzLJ4=w240-h480-rw" alt="Project 2"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity C#</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Game Designer & Developer</span>
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Released</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Painting Fall</h3>
+                            <p class="text-gray-400 mb-4">
+                                Hyper Casual game where the player paints the ground with a paint roller while avoiding obstacles and enemies.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a> -->
+                                <div class="flex space-x-2">
+                                    <a href="https://play.google.com/store/apps/details?id=com.colorfultails.PaintingFall&hl=en"
+                                        class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-gamepad"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Hitbreak -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://media.licdn.com/dms/image/sync/v2/D4E27AQHkkrakFtY7yA/articleshare-shrink_160/articleshare-shrink_160/0/1712677171501?e=1748923200&v=beta&t=WGJBoxlpjGis3deD8MRSH32Mafx2_mg3sArUZiroqpY" alt="Project 2"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity C#</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Game Developer</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Hitbreak</h3>
+                            <p class="text-gray-400 mb-4">
+                                Hyper Casual game where the player can only proceed to the next level when all the blocks are destroyed.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a> -->
+                                <!-- <div class="flex space-x-2">
+                                    <a href="https://play.google.com/store/apps/details?id=com.colorfultails.PaintingFall&hl=en"
+                                        class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-gamepad"></i>
+                                    </a>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project WinterRace -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://media.licdn.com/dms/image/sync/v2/D4E27AQGWUTsNc_6s3A/articleshare-shrink_160/articleshare-shrink_160/0/1712678739319?e=1748923200&v=beta&t=6gJH3EK1pQ4h_D0wBtFnRVf53rjyDMSmAo1hJZ0a0aI" alt="Project 2"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity C#</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Game Developer</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">WinterRace</h3>
+                            <p class="text-gray-400 mb-4">
+                                Hyper Casual game where the player competes with AI to reach the goal with his snowball, he must be able to cross obstacles and prevent his snowball from shrinking.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a> -->
+                                <div class="flex space-x-2">
+                                    <a href="https://play.google.com/store/apps/details?id=com.colorfultails.PaintingFall&hl=en"
+                                        class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-gamepad"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project SmashKnights -->
+                    <div class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQEDuWSnegmc-A/profile-treasury-image-shrink_160_160/profile-treasury-image-shrink_160_160/0/1712679436631?e=1748923200&v=beta&t=hQpCzwhkiak2QRzc23H1xzCZRN97AeIrdY-1Gh4S8nI" alt="Project 2"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unreal Engine 4</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Multiplayer</span>
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Blueprint Scripting</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Prototype</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">SmashKnights</h3>
+                            <p class="text-gray-400 mb-4">
+                                A research prototype built with Unreal Engine 4 utilizing the Blueprint System. It’s a multiplayer PvP game that supports both free-for-all and team-based modes. 
+                                Players can choose from three distinct classes, each featuring unique abilities.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a> -->
+                                <div class="flex space-x-2">
+                                    <a href="https://drive.google.com/file/d/1tCEa8BE-4O6g2XBkKxQeeein8RrfBfr8/view"
+                                        class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project DrivIT -->
+                    <div
+                        class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/96/81/a6/9681a616-1eb1-4560-2d9b-9718f19bc22b/AppIcon-1x_U007emarketing-0-6-0-85-220-0.png/230x0w.webp" alt="Project 3"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">iOS</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">Objective C/C++</span>                                
+                                <span class="bg-blue-400 text-white text-xs px-2 py-1 rounded ml-2">Cocoapods</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">AFNetworking</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">DrivIT</h3>
+                            <p class="text-gray-400 mb-4">
+                                DrivIT is a dedicated app for driving school students, designed to make your learning experience smoother and more connected. 
+                                With real-time updates and convenient tools, DrivIT supports your driving journey through the power of IT.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a> -->
+                                <div class="flex space-x-2">
+                                    <a href="https://apps.apple.com/us/app/drivit-%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B4%E3%82%A3%E3%83%83%E3%83%88/id940132196" class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-phone-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Anky -->
+                    <div
+                        class="project-card frost-glass rounded-lg overflow-hidden transition duration-500 transform hover:scale-105">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/60/32/58/6032586f-9c37-3065-48b4-75969ed1e8b0/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/217x0w.webp" alt="Project 4"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                            <div class="absolute bottom-0 left-0 p-4">
+                                <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Unity</span>
+                                <span class="bg-teal-400 text-white text-xs px-2 py-1 rounded ml-2">2D</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Anky</h3>
+                            <p class="text-gray-400 mb-4">
+                                Anky is a business support app designed for exhibitions, seminars, showrooms, and face-to-face sales activities. 
+                                It enables effortless survey collection linked directly to business card data, streamlining customer engagement.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <!-- <a href="#" class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a> -->
+                                <div class="flex space-x-2">
+                                    <a href="https://apps.apple.com/jp/app/anky/id1255340188"
+                                        class="text-gray-400 hover:text-white">
+                                        <i class="fab fa-phone-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </section>
-        
+
         <!-- Skills Section -->
         <section id="skills" class="py-20 frost-glass particles-js">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -569,58 +853,98 @@
                     <h2 class="text-3xl font-bold gradient-text inline-block">My Skills</h2>
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto mt-4"></div>
                     <p class="text-gray-400 max-w-2xl mx-auto mt-6">
-                        Over the years, I've developed expertise in various aspects of game development. 
+                        Over the years, not only I've developed expertise in various aspects of game development but also in mobile and software development.
                         Here's a breakdown of my technical skills and areas of specialization.
                     </p>
                 </div>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-8">Technical Skills</h3>
-                        
+
                         <div class="mb-6">
                             <div class="flex justify-between mb-2">
-                                <span class="text-white font-medium">Unity Engine</span>
+                                <span class="text-white font-medium">Unreal Engine</span>
                                 <span class="text-blue-400">95%</span>
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 95%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-6">
                             <div class="flex justify-between mb-2">
-                                <span class="text-white font-medium">Unreal Engine</span>
-                                <span class="text-blue-400">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-white font-medium">C# Programming</span>
+                                <span class="text-white font-medium">Unity Engine</span>
                                 <span class="text-blue-400">90%</span>
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 90%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-6">
                             <div class="flex justify-between mb-2">
                                 <span class="text-white font-medium">C++ Programming</span>
+                                <span class="text-blue-400">93%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 93%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">C# Programming</span>
+                                <span class="text-blue-400">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">UE Blueprint Scripting</span>
+                                <span class="text-blue-400">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Java Programming</span>
+                                <span class="text-blue-400">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Kotlin Programming</span>
                                 <span class="text-blue-400">80%</span>
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 80%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-6">
                             <div class="flex justify-between mb-2">
-                                <span class="text-white font-medium">Shader Programming</span>
+                                <span class="text-white font-medium">Objective C/C++, Swift Programming</span>
+                                <span class="text-blue-400">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Javascript Programming</span>
                                 <span class="text-blue-400">75%</span>
                             </div>
                             <div class="skill-bar">
@@ -628,20 +952,20 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div>
                         <h3 class="text-xl font-bold text-white mb-8">Additional Skills</h3>
-                        
+
                         <div class="mb-6">
                             <div class="flex justify-between mb-2">
-                                <span class="text-white font-medium">Game Design</span>
+                                <span class="text-white font-medium">Gameplay Design</span>
                                 <span class="text-blue-400">92%</span>
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 92%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-6">
                             <div class="flex justify-between mb-2">
                                 <span class="text-white font-medium">Level Design</span>
@@ -651,66 +975,114 @@
                                 <div class="skill-progress" style="width: 88%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-6">
                             <div class="flex justify-between mb-2">
-                                <span class="text-white font-medium">3D Modeling</span>
+                                <span class="text-white font-medium">AI Behavior</span>
+                                <span class="text-blue-400">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Asset Integration</span>
                                 <span class="text-blue-400">70%</span>
                             </div>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 70%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-6">
                             <div class="flex justify-between mb-2">
                                 <span class="text-white font-medium">UI/UX Design</span>
-                                <span class="text-blue-400">85%</span>
+                                <span class="text-blue-400">81%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
+                                <div class="skill-progress" style="width: 81%"></div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-6">
                             <div class="flex justify-between mb-2">
-                                <span class="text-white font-medium">Project Management</span>
-                                <span class="text-blue-400">90%</span>
+                                <span class="text-white font-medium">Game Development</span>
+                                <span class="text-blue-400">95%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Mobile App Development</span>
+                                <span class="text-blue-400">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Web App Development</span>
+                                <span class="text-blue-400">81%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 81%"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-white font-medium">Software Development Life Cycle</span>
+                                <span class="text-blue-400">99%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 99%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
-                        <div class="w-16 h-16 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div
+                        class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
+                        <div
+                            class="w-16 h-16 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-code text-blue-400 text-2xl"></i>
                         </div>
                         <h4 class="text-white font-medium mb-2">Clean Code</h4>
                         <p class="text-gray-400 text-sm">Modular, maintainable, and efficient code architecture</p>
                     </div>
-                    
-                    <div class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
-                        <div class="w-16 h-16 bg-teal-400 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+
+                    <div
+                        class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
+                        <div
+                            class="w-16 h-16 bg-teal-400 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-lightbulb text-teal-300 text-2xl"></i>
                         </div>
                         <h4 class="text-white font-medium mb-2">Innovation</h4>
-                        <p class="text-gray-400 text-sm">Creative solutions to complex gameplay challenges</p>
+                        <p class="text-gray-400 text-sm">Creative solutions to complex challenges</p>
                     </div>
-                    
-                    <div class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
-                        <div class="w-16 h-16 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+
+                    <div
+                        class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
+                        <div
+                            class="w-16 h-16 bg-blue-500 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-users text-blue-400 text-2xl"></i>
                         </div>
-                        <h4 class="text-white font-medium mb-2">Team Leadership</h4>
-                        <p class="text-gray-400 text-sm">Experience managing cross-functional game dev teams</p>
+                        <h4 class="text-white font-medium mb-2">Team Player</h4>
+                        <p class="text-gray-400 text-sm">Experienced in cross-functional dev teams in game or software projects</p>
                     </div>
-                    
-                    <div class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
-                        <div class="w-16 h-16 bg-teal-400 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+
+                    <div
+                        class="frost-glass rounded-lg p-6 text-center hover:bg-gray-700 hover:bg-opacity-30 transition duration-300">
+                        <div
+                            class="w-16 h-16 bg-teal-400 bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-rocket text-teal-300 text-2xl"></i>
                         </div>
                         <h4 class="text-white font-medium mb-2">Optimization</h4>
@@ -719,19 +1091,19 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Contact Section -->
-         <section id="contact" class="py-20 particles-js">      
+        <section id="contact" class="py-20 particles-js">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl font-bold gradient-text inline-block">Get In Touch</h2>
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-teal-400 mx-auto mt-4"></div>
                     <p class="text-gray-400 max-w-2xl mx-auto mt-6">
-                        Interested in working together or have a question about my work? 
+                        Interested in working together or have a question about my work?
                         Feel free to reach out through any of the channels below.
                     </p>
                 </div>
-                
+
                 <div class="flex flex-col md:flex-row flex items-center justify-center relative overflow-hidden">
                     <div>
                         <!-- <h3 class="text-xl font-bold text-white mb-6">Contact Information</h3>
@@ -766,21 +1138,17 @@
                             </div> 
                         </div> -->
                         <div class="flex space-x-4 items-center justify-center relative overflow-hidden">
-                            <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition duration-300">
+                            <a href="https://www.linkedin.com/in/jc-inocente/"
+                                class="w-12 h-12 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition duration-300">
                                 <i class="fab fa-linkedin-in text-white"></i>
                             </a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-blue-400 flex items-center justify-center transition duration-300">
-                                <i class="fab fa-twitter text-white"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-teal-400 flex items-center justify-center transition duration-300">
-                                <i class="fab fa-instagram text-white"></i>
-                            </a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300">
+                            <a href="https://github.com/jon-inoc"
+                                class="w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300">
                                 <i class="fab fa-github text-white"></i>
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- <div class="md:w-1/2">
                         <form class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -809,7 +1177,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Footer -->
         <footer class="frost-glass py-12">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -819,30 +1187,30 @@
             </div>
         </footer>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('menu-toggle').addEventListener('click', function () {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
-        
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-                
+
                 // Close mobile menu if open
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
-        
+
         // Initialize particles.js with frost theme
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             if (document.getElementById('particles-js')) {
                 particlesJS('particles-js', {
                     "particles": {
@@ -950,10 +1318,10 @@
                     "retina_detect": true
                 });
             }
-            
+
             // Animation for skill bars
             const skillBars = document.querySelectorAll('.skill-progress');
-            
+
             const animateSkillBars = () => {
                 skillBars.forEach(bar => {
                     const width = bar.style.width;
@@ -964,7 +1332,7 @@
                     }, 100);
                 });
             };
-            
+
             // Intersection Observer for skill bars animation
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -973,8 +1341,8 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, {threshold: 0.5});
-            
+            }, { threshold: 0.5 });
+
             document.querySelectorAll('#skills').forEach(section => {
                 observer.observe(section);
             });
@@ -982,4 +1350,5 @@
         });
     </script>
 </body>
+
 </html>
